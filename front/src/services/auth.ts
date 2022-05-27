@@ -1,11 +1,16 @@
 import apiService from './api';
 import cacheService from './cache';
 
+import { ISubscription } from '@/interfaces/models/subscription';
 import IUser from '@/interfaces/models/user';
 import { store } from '@/store';
 import { authTokenSlice } from '@/store/slices/authToken';
 
 export class AuthService {
+  public async subscription(subscription: ISubscription): Promise<void> {
+    await apiService.post('/subscription', subscription);
+    return this.login(subscription.name, subscription.email);
+  }
   public async create(user: IUser): Promise<void> {
     await apiService.post('/auth/create', user);
     return this.login(user.email, user.password);

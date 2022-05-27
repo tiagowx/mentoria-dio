@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import styled, { breakpoints, IStyledProp } from '@eduzz/houston-ui/styles/styled';
 import Typography from '@eduzz/houston-ui/Typography';
 
+import LandingPage from './Landing';
 import LoginPage from './Login';
 import NewPasswordPage from './NewPassword';
 
@@ -20,6 +21,7 @@ const PublicPage: React.FC<IStyledProp> = ({ className }) => {
             <Switch>
               <Route path='/nova-senha' exact component={NewPasswordPage} />
               <Route path='/login' exact component={LoginPage} />
+              <Route path='/get-news' exact component={LandingPage} />
             </Switch>
           </div>
         </div>
